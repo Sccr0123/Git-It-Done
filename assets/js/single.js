@@ -17,6 +17,11 @@ function getRepoIssues(repo) {
 }
 
 function displayIssues(issues) {
+	if (issues.length === 0) {
+		issueContainerEl.textContent = "This repo has no open issues!";
+		return;
+	}
+
 	for (var i = 0; i < issues.length; i++) {
 		// create a link element to take users to the issue on github
 		var issueEl = document.createElement("a");
@@ -43,8 +48,8 @@ function displayIssues(issues) {
 		}
 
 		// append to container
-        issueEl.appendChild(typeEl);
-        issueContainerEl.appendChild(issueEl);
+		issueEl.appendChild(typeEl);
+		issueContainerEl.appendChild(issueEl);
 	}
 }
 
